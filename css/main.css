@@ -14,17 +14,30 @@ a {
   text-decoration: none;
 }
 
+body {
+  position: relative;
+}
+
 hr {
   width: 80vw;
 }
 
 header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
   background-color: #3c3a39;
   color: white;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+header.stick {
+  position: fixed;
 }
 
 #desktop-nav,
@@ -50,6 +63,26 @@ header {
   width: 18px;
   height: 12px;
   color: white;
+}
+
+.nav-main {
+  position: fixed;
+  top: 54px;
+  bottom: 0;
+  left: 100%;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  visibility: hidden;
+  background-color: #3c3a39;
+  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.nav-main.open {
+  visibility: visible;
+  transform: translateX(-100%);
 }
 
 main {
@@ -425,6 +458,16 @@ textarea {
 
   .mobile-icon {
     display: none;
+  }
+
+  .nav-main {
+    position: unset;
+    visibility: visible;
+    width: unset;
+  }
+
+  .nav-main ul {
+    display: flex;
   }
 
   .desktop-icon {
