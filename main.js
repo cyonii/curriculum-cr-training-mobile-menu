@@ -1,6 +1,11 @@
 const menuBar = document.querySelector('.menu-bars');
+const closeMenu = document.getElementById('closeMenu');
+const navMenu = document.querySelector('.nav-main');
 
 menuBar.addEventListener('click', () => {
-  document.querySelector('.nav-main').classList.toggle('open');
-  document.querySelector('.top-header').classList.toggle('stick');
+  navMenu.classList.toggle('open');
 });
+
+closeMenu.onclick = () => {
+  navMenu.classList.remove('open');
+};
